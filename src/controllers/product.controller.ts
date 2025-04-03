@@ -29,6 +29,7 @@ class ProductController {
 
      getAllProducts = asyncHandler(async (_req: Request, res: Response) =>{
         const products = await this.productService.getAllProducts();    
+        console.log(" here")
         return res
         .status(StatusCodes.OK)
         .json(new ApiResponse(StatusCodes.OK, products, API_RESPONSES.PRODUCTS_FETCHED));   
