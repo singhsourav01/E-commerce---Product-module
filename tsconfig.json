@@ -14,9 +14,8 @@
               "src/types/*"
           ]
       },
-      "lib": [
-          "es2015"
-      ],
+      "lib": ["ESNext", "DOM"],
+
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true
   },
