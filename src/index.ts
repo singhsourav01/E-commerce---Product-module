@@ -8,11 +8,7 @@ import { API_ERRORS , PORT } from "./constants/app.constants";
 
 const app = express();
 
-app.use(cors({
-  origin: ['http://localhost:4200'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors());
 
 app.use(express.json());
 app.use("/api", ProductRouter);
