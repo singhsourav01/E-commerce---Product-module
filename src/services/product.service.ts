@@ -48,11 +48,10 @@ class ProductService {
 
     getAllProducts = async () => {
         const products = await productRepository.find({ relations: ["images"] });
-        // if(products?.length < 1){
-        //     throw new ApiError(StatusCodes.BAD_REQUEST, API_ERRORS.PRODUCTS_NOT_FETCHED)
-        // }
+        if(products?.length < 1){
+            throw new ApiError(StatusCodes.BAD_REQUEST, API_ERRORS.PRODUCTS_NOT_FETCHED)
+        }
         return products
-        // return "Hellow testing";
     }
 
     updateProduct = async (productId: string, sku?: string, name?: string, price?: number, images?: string[]) => {
