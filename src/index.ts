@@ -1,13 +1,15 @@
 import express from "express";
 import { AppDataSource } from "./data-source";
 import ProductRouter from "./routes/product.routes";
-import { ApiError } from "common-microservices-utils";
+import { ApiError, errorHandler } from "common-microservices-utils";
 import { StatusCodes } from "http-status-codes";
 import { API_ERRORS , PORT} from "./constants/app.constants";
 
 const app = express();
+
 app.use(express.json());
 app.use("/api", ProductRouter);
+app.use(errorHandler)
 
 AppDataSource.initialize()
     .then(() => {
